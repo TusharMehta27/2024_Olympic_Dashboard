@@ -23,13 +23,13 @@ import os
 import pandas as pd
 
 # Set Kaggle API credentials directory
-os.environ['KAGGLE_CONFIG_DIR'] = 'C:/Users/faisa/.kaggle'  # Update this path to your Kaggle configuration directory
+os.environ['KAGGLE_CONFIG_DIR'] = 'C:/Users/tushar/.kaggle'  # Update this path to your Kaggle configuration directory
 
 # Specify the dataset identifier
 dataset = 'piterfm/paris-2024-olympic-summer-games'
 
 # Set the download path
-download_path = 'C:/Users/faisa/Downloads/Power BI_Imp Summary/Olympic/Source' # Change this to your preferred download directory
+download_path = 'C:/Users/tushar/Downloads/Power BI_Imp Summary/Olympic/Source' # Change this to your preferred download directory
 
 # Remove existing files in the folder to prevent duplicates or outdated files
 for file in os.listdir(download_path):
