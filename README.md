@@ -4,7 +4,7 @@ The Paris 2024 Summer Olympics promise to be a grand event, and analyzing the re
 
 This project involves several steps, from downloading the data to preparing it for visualization. Here’s a breakdown of the entire process:
 
-Step 1: Setting Up Kaggle API and Python Environment:
+#Step 1: Setting Up Kaggle API and Python Environment:
 First, we need to set up the Kaggle API to access and download datasets. Follow these steps:
 
 Sign up on Kaggle: If you don’t have a Kaggle account, sign up here.
@@ -15,23 +15,23 @@ Make sure you have Python installed along with the necessary libraries:
 
 pip install kaggle pandas
 
-Step 2: Python Script for Downloading the Dataset:
+#Step 2: Python Script for Downloading the Dataset:
 Below is the Python script that automates the process of downloading the Paris 2024 Olympic dataset from Kaggle and loading it into Pandas DataFrames for analysis.
 
 import kaggle
 import os
 import pandas as pd
 
-# Set Kaggle API credentials directory
+## Set Kaggle API credentials directory
 os.environ['KAGGLE_CONFIG_DIR'] = 'C:/Users/tushar/.kaggle'  # Update this path to your Kaggle configuration directory
 
-# Specify the dataset identifier
+## Specify the dataset identifier
 dataset = 'piterfm/paris-2024-olympic-summer-games'
 
-# Set the download path
+## Set the download path
 download_path = 'C:/Users/tushar/Downloads/Power BI_Imp Summary/Olympic/Source' # Change this to your preferred download directory
 
-# Remove existing files in the folder to prevent duplicates or outdated files
+## Remove existing files in the folder to prevent duplicates or outdated files
 for file in os.listdir(download_path):
     file_path = os.path.join(download_path, file)
     try:
@@ -41,10 +41,10 @@ for file in os.listdir(download_path):
     except Exception as e:
         print(f"Error deleting {file_path}: {e}")
 
-# Download the dataset using the Kaggle API and unzip the files
+## Download the dataset using the Kaggle API and unzip the files
 kaggle.api.dataset_download_files(dataset, path=download_path, unzip=True)
 
-# List of CSV files to be imported
+## List of CSV files to be imported
 csv_files = [
     'athletes.csv',
     'events.csv',
@@ -58,17 +58,17 @@ csv_files = [
     'venues.csv'
 ]
 
-# Initialize a dictionary to hold DataFrames
+## Initialize a dictionary to hold DataFrames
 dataframes = {}
 
-# Iterate through each CSV file and load it into a DataFrame
+## Iterate through each CSV file and load it into a DataFrame
 for file in csv_files:
-    # Construct the full path to the CSV file
+    ## Construct the full path to the CSV file
     file_path = os.path.join(download_path, file)
     
-    # Load the CSV file into a Pandas DataFrame
+    ## Load the CSV file into a Pandas DataFrame
     df = pd.read_csv(file_path)
     
-    # Add the DataFrame to the dictionary using the file name as the key
+    ## Add the DataFrame to the dictionary using the file name as the key
     table_name = file.split('.')[0]  # Remove the .csv extension
     dataframes[table_name] = df
